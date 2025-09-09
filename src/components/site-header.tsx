@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet"
 import { Menu, Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -67,6 +67,9 @@ export function SiteHeader() {
                         </Button>
                     </SheetTrigger>
                     <SheetContent side="left" className="pr-0 w-80 sm:w-96">
+                        <SheetHeader className="sr-only">
+                            <SheetTitle>Navigation Menu</SheetTitle>
+                        </SheetHeader>
                         <MobileNav />
                     </SheetContent>
                 </Sheet>
@@ -108,9 +111,9 @@ export function SiteHeader() {
 
 function MobileNav() {
     return (
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full bg-background">
             {/* Logo */}
-            <div className="flex items-center space-x-2 px-2 py-4 border-b">
+            <div className="flex items-center space-x-2 px-2 py-4 border-b border-border">
                 <div className="h-8 w-8 rounded bg-gradient-to-br from-primary to-primary/80" />
                 <span className="font-bold text-lg">Reduxy.ai</span>
             </div>
@@ -131,8 +134,8 @@ function MobileNav() {
                 ))}
             </div>
 
-            {/* Action Buttons */}
-            <div className="p-4 border-t space-y-3">
+            {/* Action Buttons - Only visible on mobile */}
+            <div className="p-4 border-t border-border space-y-3 md:hidden">
                 <Button asChild variant="ghost" className="w-full justify-start" size="lg">
                     <Link href="/docs/getting-started">
                         Get Started
