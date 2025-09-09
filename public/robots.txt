@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.reduxy.ai
+
+# Sitemaps
+Sitemap: https://www.reduxy.ai/sitemap.xml
