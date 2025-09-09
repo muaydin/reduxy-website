@@ -17,17 +17,17 @@ export default function HomePage() {
                 <Hero />
 
                 {/* Logo Cloud */}
-                <section className="container py-8 md:py-12">
-                    <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
+                <section className="section-padding-sm bg-muted/30">
+                    <div className="content-width-narrow flex flex-col items-center gap-6 text-center">
                         <p className="text-sm text-muted-foreground">
                             Trusted by developers at leading companies
                         </p>
-                        <div className="flex items-center justify-center space-x-8 grayscale opacity-60">
+                        <div className="flex items-center justify-center space-x-12 grayscale opacity-60">
                             {/* Placeholder for company logos */}
-                            <div className="h-8 w-24 bg-muted rounded" />
-                            <div className="h-8 w-24 bg-muted rounded" />
-                            <div className="h-8 w-24 bg-muted rounded" />
-                            <div className="h-8 w-24 bg-muted rounded" />
+                            <div className="h-10 w-28 bg-gradient-to-r from-muted to-muted/50 rounded-lg animate-pulse" />
+                            <div className="h-10 w-28 bg-gradient-to-r from-muted to-muted/50 rounded-lg animate-pulse" />
+                            <div className="h-10 w-28 bg-gradient-to-r from-muted to-muted/50 rounded-lg animate-pulse" />
+                            <div className="h-10 w-28 bg-gradient-to-r from-muted to-muted/50 rounded-lg animate-pulse" />
                         </div>
                     </div>
                 </section>
@@ -35,22 +35,22 @@ export default function HomePage() {
                 <Separator />
 
                 {/* How it works */}
-                <section className="container py-8 md:py-12 lg:py-24">
-                    <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
+                <section className="section-padding">
+                    <div className="content-width flex flex-col items-center gap-6 text-center">
                         <Badge variant="outline">How It Works</Badge>
-                        <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
+                        <h2 className="heading-2">
                             Privacy-first AI gateway
                         </h2>
-                        <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
+                        <p className="max-w-[750px] text-xl text-muted-foreground sm:text-2xl leading-relaxed">
                             Your applications stay exactly the same. Just point your OpenAI API calls to Reduxy, and we handle the rest.
                         </p>
                     </div>
 
                     {/* Architecture Diagram */}
-                    <div className="mx-auto mt-12 max-w-4xl">
-                        <div className="flex items-center justify-between space-x-4">
-                            <Card className="flex-1">
-                                <CardContent className="p-6 text-center">
+                    <div className="mx-auto mt-16 max-w-6xl">
+                        <div className="flex items-center justify-between space-x-6">
+                            <Card className="flex-1 hover-lift glass-card">
+                                <CardContent className="p-8 text-center">
                                     <div className="mx-auto h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-4">
                                         <Globe className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                                     </div>
@@ -63,8 +63,8 @@ export default function HomePage() {
 
                             <ArrowRight className="h-6 w-6 text-muted-foreground" />
 
-                            <Card className="flex-1 border-2 border-primary">
-                                <CardContent className="p-6 text-center">
+                            <Card className="flex-1 border-2 border-primary hover-lift pricing-card-popular">
+                                <CardContent className="p-8 text-center">
                                     <div className="mx-auto h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                                         <Shield className="h-6 w-6 text-primary" />
                                     </div>
@@ -77,8 +77,8 @@ export default function HomePage() {
 
                             <ArrowRight className="h-6 w-6 text-muted-foreground" />
 
-                            <Card className="flex-1">
-                                <CardContent className="p-6 text-center">
+                            <Card className="flex-1 hover-lift glass-card">
+                                <CardContent className="p-8 text-center">
                                     <div className="mx-auto h-12 w-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4">
                                         <Zap className="h-6 w-6 text-green-600 dark:text-green-400" />
                                     </div>
@@ -95,23 +95,25 @@ export default function HomePage() {
                 <Separator />
 
                 {/* Code Examples */}
-                <section className="container py-8 md:py-12 lg:py-24">
-                    <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
+                <section className="section-padding bg-muted/20">
+                    <div className="content-width flex flex-col items-center gap-6 text-center">
                         <Badge variant="outline">Quick Start</Badge>
-                        <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
+                        <h2 className="heading-2">
                             OpenAI-compatible API
                         </h2>
-                        <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
+                        <p className="max-w-[750px] text-xl text-muted-foreground sm:text-2xl leading-relaxed">
                             Drop-in replacement for OpenAI&apos;s API. Change one URL and get instant PII protection.
                         </p>
                     </div>
 
-                    <div className="mx-auto mt-12 max-w-4xl">
-                        <CodeTabs examples={chatCompletionExamples} />
+                    <div className="mx-auto mt-16 max-w-5xl">
+                        <div className="code-block">
+                            <CodeTabs examples={chatCompletionExamples} />
+                        </div>
                     </div>
 
-                    <div className="mx-auto mt-8 max-w-2xl">
-                        <Card>
+                    <div className="mx-auto mt-12 max-w-3xl">
+                        <Card className="glass-card hover-lift">
                             <CardContent className="p-6">
                                 <h3 className="font-semibold mb-4">Key Features</h3>
                                 <div className="grid gap-3 sm:grid-cols-2">

@@ -116,7 +116,154 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+
+  /* Container improvements with better spacing */
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+  }
+
+  /* Enhanced gradients and backgrounds */
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg,
+        hsl(var(--background)) 0%,
+        hsl(var(--muted) / 0.3) 50%,
+        hsl(var(--background)) 100%);
+  }
+
+  /* Animated gradient for hero text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent;
+    background-size: 300% 300%;
+    animation: gradient-shift 6s ease-in-out infinite;
+  }
+
+  /* Glass morphism effect for cards */
+  .glass-card {
+    @apply bg-background/80 backdrop-blur-sm border border-border/50;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  /* Enhanced hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-2 shadow-lg;
+  }
+
+  /* Better button styles */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700;
+    @apply text-white border-0 shadow-md transition-all duration-300;
+  }
+
+  /* Section spacing improvements */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .section-padding-sm {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Typography enhancements */
+  .heading-1 {
+    @apply text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl lg:leading-[1.1];
+  }
+
+  .heading-2 {
+    @apply text-3xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl;
+  }
+
+  .heading-3 {
+    @apply text-2xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl;
+  }
+
+  /* Code block improvements */
+  .code-block {
+    @apply rounded-xl bg-muted/50 border border-border/50 backdrop-blur-sm;
+  }
+
+  /* Navigation improvements */
+  .nav-blur {
+    @apply bg-background/95 backdrop-blur-md border-b border-border/50;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+
+  /* Pricing card enhancements */
+  .pricing-card {
+    @apply relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm;
+    @apply transition-all duration-300 hover:border-primary/50 hover:shadow-xl;
+  }
+
+  .pricing-card-popular {
+    @apply border-primary shadow-xl scale-105 bg-gradient-to-br from-primary/5 to-purple-500/5;
+  }
+
+  /* Better spacing for content areas */
+  .content-width {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .content-width-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .content-width-wide {
+    @apply max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+
+  /* Animation keyframes */
+  @keyframes gradient-shift {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Custom shadows */
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  .shadow-glow-purple {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.15);
   }
 }

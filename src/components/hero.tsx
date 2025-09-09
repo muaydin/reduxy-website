@@ -5,72 +5,75 @@ import { ArrowRight, Shield, FileSearch } from "lucide-react"
 
 export function Hero() {
     return (
-        <section className="container space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
-            <div className="mx-auto flex max-w-[980px] flex-col items-center gap-2 text-center">
-                <Badge variant="outline" className="mb-4">
-                    🎉 Now supporting OpenAI, Anthropic, and more
-                </Badge>
+        <section className="relative overflow-hidden hero-gradient">
+            <div className="absolute inset-0 bg-grid-black/[0.02] bg-[size:50px_50px]" />
+            <div className="relative content-width section-padding">
+                <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
+                    <Badge variant="outline" className="mb-4 hover-lift">
+                        🎉 Now supporting OpenAI, Anthropic, and more
+                    </Badge>
 
-                <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
-                    A privacy gateway for{" "}
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                        LLMs
-                    </span>
-                </h1>
+                    <h1 className="heading-1">
+                        A privacy gateway for{" "}
+                        <span className="gradient-text">
+                            LLMs
+                        </span>
+                    </h1>
 
-                <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-                    Mask PII, route safely, and audit every token before your data reaches OpenAI, Anthropic, or your own models.
-                </p>
+                    <p className="max-w-[750px] text-xl text-muted-foreground sm:text-2xl leading-relaxed">
+                        Mask PII, route safely, and audit every token before your data reaches OpenAI, Anthropic, or your own models.
+                    </p>
 
-                <div className="flex flex-col gap-4 min-[400px]:flex-row mt-8">
-                    <Button asChild size="lg" className="gap-2">
-                        <Link href="/docs/getting-started">
-                            Get Started
-                            <ArrowRight className="h-4 w-4" />
-                        </Link>
-                    </Button>
-                    <Button asChild variant="outline" size="lg">
-                        <Link href="/contact">
-                            Talk to Sales
-                        </Link>
-                    </Button>
-                </div>
-
-                <p className="text-sm text-muted-foreground mt-4">
-                    Free tier available • Enterprise ready • SOC 2 Type II
-                </p>
-            </div>
-
-            {/* Value Props */}
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-3 mt-16">
-                <div className="flex flex-col items-center space-y-2 text-center">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900">
-                        <Shield className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                    <div className="flex flex-col gap-4 min-[400px]:flex-row mt-8">
+                        <Button asChild size="lg" className="btn-gradient gap-2 hover-lift">
+                            <Link href="/docs/getting-started">
+                                Get Started
+                                <ArrowRight className="h-4 w-4" />
+                            </Link>
+                        </Button>
+                        <Button asChild variant="outline" size="lg" className="hover-lift">
+                            <Link href="/contact">
+                                Talk to Sales
+                            </Link>
+                        </Button>
                     </div>
-                    <h3 className="text-lg font-semibold">Masking & Redaction</h3>
-                    <p className="text-sm text-muted-foreground">
-                        Deterministic & ML-assisted detection of PII, PHI, and sensitive data with reversible masking.
+
+                    <p className="text-sm text-muted-foreground mt-4">
+                        Free tier available • Enterprise ready • SOC 2 Type II
                     </p>
                 </div>
 
-                <div className="flex flex-col items-center space-y-2 text-center">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900">
-                        <ArrowRight className="h-6 w-6 text-green-600 dark:text-green-400" />
+                {/* Value Props */}
+                <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-3 mt-20">
+                    <div className="flex flex-col items-center space-y-4 text-center group">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 dark:bg-blue-900 group-hover:scale-110 transition-transform duration-300 shadow-glow">
+                            <Shield className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <h3 className="text-xl font-semibold">Masking & Redaction</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                            Deterministic & ML-assisted detection of PII, PHI, and sensitive data with reversible masking.
+                        </p>
                     </div>
-                    <h3 className="text-lg font-semibold">Smart Routing</h3>
-                    <p className="text-sm text-muted-foreground">
-                        Route requests by content type, sensitivity, region, latency, and cost optimization.
-                    </p>
-                </div>
 
-                <div className="flex flex-col items-center space-y-2 text-center">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900">
-                        <FileSearch className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                    <div className="flex flex-col items-center space-y-4 text-center group">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 dark:bg-green-900 group-hover:scale-110 transition-transform duration-300 shadow-glow">
+                            <ArrowRight className="h-8 w-8 text-green-600 dark:text-green-400" />
+                        </div>
+                        <h3 className="text-xl font-semibold">Smart Routing</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                            Route requests by content type, sensitivity, region, latency, and cost optimization.
+                        </p>
                     </div>
-                    <h3 className="text-lg font-semibold">Audit & Compliance</h3>
-                    <p className="text-sm text-muted-foreground">
-                        Complete audit trails, detailed logs, and compliance reporting for GDPR, HIPAA, and more.
-                    </p>
+
+                    <div className="flex flex-col items-center space-y-4 text-center group">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-100 dark:bg-purple-900 group-hover:scale-110 transition-transform duration-300 shadow-glow-purple">
+                            <FileSearch className="h-8 w-8 text-purple-600 dark:text-purple-400" />
+                        </div>
+                        <h3 className="text-xl font-semibold">Audit & Compliance</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                            Complete audit trails, detailed logs, and compliance reporting for GDPR, HIPAA, and more.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>

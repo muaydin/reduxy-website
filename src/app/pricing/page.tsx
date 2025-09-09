@@ -95,23 +95,23 @@ export default function PricingPage() {
         <div className="flex min-h-screen flex-col">
             <SiteHeader />
             <main className="flex-1">
-                <div className="container py-8 md:py-12 lg:py-24">
-                    <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
+                <div className="section-padding">
+                    <div className="content-width flex flex-col items-center gap-6 text-center">
                         <Badge variant="outline">Pricing</Badge>
-                        <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
+                        <h1 className="heading-1">
                             Simple, transparent pricing
                         </h1>
-                        <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
+                        <p className="max-w-[750px] text-xl text-muted-foreground sm:text-2xl leading-relaxed">
                             Choose the plan that&apos;s right for your team. Start free and scale as you grow.
                         </p>
                     </div>
 
                     {/* Pricing Cards */}
-                    <div className="mx-auto mt-16 grid max-w-6xl gap-8 lg:grid-cols-3">
+                    <div className="mx-auto mt-20 grid max-w-7xl gap-8 lg:grid-cols-3">
                         {pricingTiers.map((tier) => (
                             <Card
                                 key={tier.name}
-                                className={`relative ${tier.popular ? 'border-primary shadow-lg scale-105' : ''}`}
+                                className={`pricing-card hover-lift ${tier.popular ? 'pricing-card-popular' : ''}`}
                             >
                                 {tier.popular && (
                                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
