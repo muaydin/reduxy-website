@@ -89,12 +89,12 @@ export function SiteHeader() {
                             <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                             <span className="sr-only">Toggle theme</span>
                         </Button>
-                        <Button asChild size="sm" variant="ghost">
+                        <Button asChild size="sm" variant="ghost" className="hidden sm:inline-flex">
                             <Link href="/docs/getting-started">
                                 Get Started
                             </Link>
                         </Button>
-                        <Button asChild size="sm">
+                        <Button asChild size="sm" className="hidden sm:inline-flex">
                             <Link href="/contact">
                                 Talk to Sales
                             </Link>

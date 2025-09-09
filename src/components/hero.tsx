@@ -23,7 +23,7 @@ export function Hero() {
                         Mask PII, route safely, and audit every token before your data reaches OpenAI, Anthropic, or your own models.
                     </p>
 
-                    <div className="flex flex-col gap-3 sm:gap-4 min-[400px]:flex-row mt-6 sm:mt-8 w-full max-w-md sm:max-w-none">
+                    <div className="flex flex-col gap-3 sm:gap-4 min-[400px]:flex-row mt-6 sm:mt-8 w-full max-w-md sm:max-w-none justify-center items-center">
                         <Button asChild size="lg" className="btn-gradient gap-2 hover-lift">
                             <Link href="/docs/getting-started">
                                 Get Started
