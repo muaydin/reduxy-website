@@ -63,7 +63,7 @@ export default function HomePage() {
 
                             <ArrowRight className="h-6 w-6 text-muted-foreground" />
 
-                            <Card className="flex-1 border-2 border-primary hover-lift pricing-card-popular">
+                            <Card className="flex-1 hover-lift pricing-card-popular">
                                 <CardContent className="p-8 text-center">
                                     <div className="mx-auto h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                                         <Shield className="h-6 w-6 text-primary" />

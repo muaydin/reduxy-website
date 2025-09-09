@@ -152,8 +152,8 @@
 
   /* Glass morphism effect for cards */
   .glass-card {
-    @apply bg-background/80 backdrop-blur-sm border border-border/50;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    @apply bg-background/80 backdrop-blur-sm border-0;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   }
 
   /* Enhanced hover effects */
@@ -195,23 +195,26 @@
 
   /* Code block improvements */
   .code-block {
-    @apply rounded-xl bg-muted/50 border border-border/50 backdrop-blur-sm;
+    @apply rounded-xl bg-muted/30 border-0 backdrop-blur-sm;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.06);
   }
 
   /* Navigation improvements */
   .nav-blur {
-    @apply bg-background/95 backdrop-blur-md border-b border-border/50;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    @apply bg-background/95 backdrop-blur-md border-b-0;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
   }
 
   /* Pricing card enhancements */
   .pricing-card {
-    @apply relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm;
-    @apply transition-all duration-300 hover:border-primary/50 hover:shadow-xl;
+    @apply relative rounded-2xl border-0 bg-card/50 backdrop-blur-sm;
+    @apply transition-all duration-300 hover:shadow-xl;
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.08);
   }
 
   .pricing-card-popular {
-    @apply border-primary shadow-xl scale-105 bg-gradient-to-br from-primary/5 to-purple-500/5;
+    @apply shadow-xl scale-105 bg-gradient-to-br from-primary/5 to-purple-500/5;
+    box-shadow: 0 8px 25px 0 rgba(59, 130, 246, 0.15), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
   }
 
   /* Better spacing for content areas */
