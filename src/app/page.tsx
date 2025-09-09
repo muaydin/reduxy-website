@@ -2,8 +2,8 @@ import { Hero } from "@/components/hero"
 import { CodeTabs, chatCompletionExamples } from "@/components/code-tabs"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
+
+
 import Link from "next/link"
 import { CheckCircle, ArrowRight, Zap, Globe, Shield } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
@@ -32,10 +32,8 @@ export default function HomePage() {
                     </div>
                 </section>
 
-                <Separator />
-
                 {/* How it works */}
-                <section className="section-padding">
+                <section className="section-padding section-gray">
                     <div className="content-width flex flex-col items-center gap-6 text-center">
                         <div className="badge-section">How It Works</div>
                         <h2 className="heading-2">
@@ -92,10 +90,8 @@ export default function HomePage() {
                     </div>
                 </section>
 
-                <Separator />
-
                 {/* Code Examples */}
-                <section className="section-padding bg-muted/20">
+                <section className="section-padding section-blue">
                     <div className="content-width flex flex-col items-center gap-6 text-center">
                         <div className="badge-section">Quick Start</div>
                         <h2 className="heading-2">
@@ -139,23 +135,21 @@ export default function HomePage() {
                     </div>
                 </section>
 
-                <Separator />
-
                 {/* Features Grid */}
-                <section className="container py-8 md:py-12 lg:py-24">
-                    <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
-                        <Badge variant="outline">Features</Badge>
-                        <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
+                <section className="section-padding section-purple">
+                    <div className="content-width flex flex-col items-center gap-4 text-center">
+                        <div className="badge-section">Features</div>
+                        <h2 className="heading-2">
                             Enterprise-grade privacy controls
                         </h2>
-                        <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
+                        <p className="max-w-[750px] text-xl text-muted-foreground sm:text-2xl leading-relaxed">
                             Comprehensive data protection, intelligent routing, and compliance features built for modern AI applications.
                         </p>
                     </div>
 
-                    <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        <Card>
-                            <CardContent className="p-6">
+                    <div className="content-width mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <Card className="glass-card hover-lift">
+                            <CardContent className="mobile-card">
                                 <h3 className="font-semibold mb-2">PII Detection</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Detect emails, SSNs, credit cards, phone numbers, IP addresses, and custom patterns with high accuracy.
@@ -163,8 +157,8 @@ export default function HomePage() {
                             </CardContent>
                         </Card>
 
-                        <Card>
-                            <CardContent className="p-6">
+                        <Card className="glass-card hover-lift">
+                            <CardContent className="mobile-card">
                                 <h3 className="font-semibold mb-2">Reversible Masking</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Vault-based token replacement that allows unmasking for authorized roles and use cases.
@@ -172,8 +166,8 @@ export default function HomePage() {
                             </CardContent>
                         </Card>
 
-                        <Card>
-                            <CardContent className="p-6">
+                        <Card className="glass-card hover-lift">
+                            <CardContent className="mobile-card">
                                 <h3 className="font-semibold mb-2">Smart Routing</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Route requests based on content sensitivity, latency requirements, cost optimization, and regional compliance.
@@ -181,8 +175,8 @@ export default function HomePage() {
                             </CardContent>
                         </Card>
 
-                        <Card>
-                            <CardContent className="p-6">
+                        <Card className="glass-card hover-lift">
+                            <CardContent className="mobile-card">
                                 <h3 className="font-semibold mb-2">Audit Trails</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Complete request/response logging with PII detection metadata and export capabilities for compliance.
@@ -190,8 +184,8 @@ export default function HomePage() {
                             </CardContent>
                         </Card>
 
-                        <Card>
-                            <CardContent className="p-6">
+                        <Card className="glass-card hover-lift">
+                            <CardContent className="mobile-card">
                                 <h3 className="font-semibold mb-2">Policy Engine</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Configurable rules for detection patterns, masking strategies, and routing decisions per tenant.
@@ -199,34 +193,50 @@ export default function HomePage() {
                             </CardContent>
                         </Card>
 
-                        <Card>
-                            <CardContent className="p-6">
+                        <Card className="glass-card hover-lift">
+                            <CardContent className="mobile-card">
                                 <h3 className="font-semibold mb-2">Multi-Provider</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    Support for OpenAI, Anthropic, Azure OpenAI, Google Vertex AI, and custom model endpoints.
+                                    Support for OpenAI, Anthropic, Azure OpenAI, and custom endpoints with unified interface.
                                 </p>
                             </CardContent>
                         </Card>
                     </div>
                 </section>
 
+                {/* Logo Cloud */}
+                <section className="section-padding-sm section-green">
+                    <div className="content-width-narrow flex flex-col items-center gap-6 text-center">
+                        <p className="text-sm text-muted-foreground">
+                            Trusted by developers at leading companies
+                        </p>
+                        <div className="flex items-center justify-center space-x-12 grayscale opacity-60">
+                            {/* Placeholder for company logos */}
+                            <div className="h-10 w-28 bg-gradient-to-r from-muted to-muted/50 rounded-lg animate-pulse" />
+                            <div className="h-10 w-28 bg-gradient-to-r from-muted to-muted/50 rounded-lg animate-pulse" />
+                            <div className="h-10 w-28 bg-gradient-to-r from-muted to-muted/50 rounded-lg animate-pulse" />
+                            <div className="h-10 w-28 bg-gradient-to-r from-muted to-muted/50 rounded-lg animate-pulse" />
+                        </div>
+                    </div>
+                </section>
+
                 {/* Final CTA */}
-                <section className="container py-8 md:py-12 lg:py-24">
-                    <div className="mx-auto flex max-w-[980px] flex-col items-center gap-6 text-center">
-                        <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
+                <section className="section-padding section-orange">
+                    <div className="content-width flex flex-col items-center gap-6 text-center">
+                        <h2 className="heading-2">
                             Ready to secure your AI data?
                         </h2>
-                        <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
+                        <p className="max-w-[750px] text-xl text-muted-foreground sm:text-2xl leading-relaxed">
                             Start with our free tier or talk to our team about enterprise deployment options.
                         </p>
-                        <div className="flex flex-col gap-4 min-[400px]:flex-row">
-                            <Button asChild size="lg" className="gap-2">
+                        <div className="flex flex-col gap-3 sm:gap-4 min-[400px]:flex-row justify-center items-center">
+                            <Button asChild size="lg" className="btn-gradient gap-2 hover-lift">
                                 <Link href="/docs/getting-started">
                                     View Documentation
                                     <ArrowRight className="h-4 w-4" />
                                 </Link>
                             </Button>
-                            <Button asChild variant="outline" size="lg">
+                            <Button asChild variant="outline" size="lg" className="hover-lift">
                                 <Link href="/pricing">
                                     See Pricing
                                 </Link>
