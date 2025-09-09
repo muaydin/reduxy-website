@@ -136,21 +136,7 @@
     background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
   }
 
-  .hero-gradient {
-    background:
-      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.2) 0%, transparent 50%),
-      linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.1) 100%);
-  }
 
-  .hero-gradient-dark {
-    background:
-      radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
-      linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.05) 100%);
-  }
 
   /* Animated gradient for hero text */
   .gradient-text {
@@ -346,3 +332,155 @@
     box-shadow: 0 0 20px rgba(147, 51, 234, 0.15);
   }
 }
+  /* Stunning hero background with multiple layers */
+  .hero-gradient {
+    background:
+      /* Animated gradient orbs */
+      radial-gradient(circle at 15% 85%, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 85% 15%, rgba(236, 72, 153, 0.35) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 60%),
+      radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
+      /* Base gradient */
+      linear-gradient(135deg, 
+        hsl(var(--background)) 0%, 
+        hsl(var(--muted) / 0.1) 25%,
+        hsl(var(--background)) 50%,
+        hsl(var(--muted) / 0.05) 75%,
+        hsl(var(--background)) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      /* Moving gradient overlay */
+      linear-gradient(45deg, 
+        rgba(139, 92, 246, 0.1) 0%, 
+        transparent 25%, 
+        rgba(236, 72, 153, 0.1) 50%, 
+        transparent 75%, 
+        rgba(59, 130, 246, 0.1) 100%);
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  .hero-gradient-dark {
+    background:
+      /* Dark mode gradient orbs */
+      radial-gradient(circle at 15% 85%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 60%),
+      radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+      /* Dark base gradient */
+      linear-gradient(135deg, 
+        hsl(var(--background)) 0%, 
+        hsl(var(--muted) / 0.05) 25%,
+        hsl(var(--background)) 50%,
+        hsl(var(--muted) / 0.02) 75%,
+        hsl(var(--background)) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-gradient-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      /* Dark mode moving gradient */
+      linear-gradient(45deg, 
+        rgba(99, 102, 241, 0.08) 0%, 
+        transparent 25%, 
+        rgba(168, 85, 247, 0.08) 50%, 
+        transparent 75%, 
+        rgba(59, 130, 246, 0.08) 100%);
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  /* Enhanced floating elements with better colors */
+  .floating-element-1 {
+    @apply absolute top-20 left-10 w-20 h-20 rounded-full blur-xl animate-pulse;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(99, 102, 241, 0.2));
+    animation-delay: 0ms;
+  }
+
+  .floating-element-2 {
+    @apply absolute top-40 right-20 w-32 h-32 rounded-full blur-xl animate-pulse;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.25), rgba(168, 85, 247, 0.15));
+    animation-delay: 1000ms;
+  }
+
+  .floating-element-3 {
+    @apply absolute bottom-40 left-20 w-24 h-24 rounded-full blur-xl animate-pulse;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(6, 182, 212, 0.2));
+    animation-delay: 2000ms;
+  }
+
+  .floating-element-4 {
+    @apply absolute bottom-20 right-10 w-16 h-16 rounded-full blur-xl animate-pulse;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(251, 146, 60, 0.15));
+    animation-delay: 500ms;
+  }
+
+  /* Additional floating elements for more dynamism */
+  .floating-element-5 {
+    @apply absolute top-60 left-1/4 w-12 h-12 rounded-full blur-lg animate-pulse;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.1));
+    animation-delay: 1500ms;
+  }
+
+  .floating-element-6 {
+    @apply absolute bottom-60 right-1/4 w-14 h-14 rounded-full blur-lg animate-pulse;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(109, 40, 217, 0.1));
+    animation-delay: 3000ms;
+  }
+
+
+  /* Animated mesh gradient overlay */
+  .hero-gradient::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .hero-gradient-dark::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+  }
+
