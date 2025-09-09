@@ -21,11 +21,38 @@ import {
     Building2
 } from "lucide-react"
 
+const colorStyles = {
+    blue: {
+        badgeBg: "bg-blue-100 dark:bg-blue-900/30",
+        badgeText: "text-blue-800 dark:text-blue-200",
+        iconColor: "text-blue-600 dark:text-blue-400",
+        iconBg: "bg-blue-100 dark:bg-blue-900/30"
+    },
+    green: {
+        badgeBg: "bg-green-100 dark:bg-green-900/30",
+        badgeText: "text-green-800 dark:text-green-200",
+        iconColor: "text-green-600 dark:text-green-400",
+        iconBg: "bg-green-100 dark:bg-green-900/30"
+    },
+    purple: {
+        badgeBg: "bg-purple-100 dark:bg-purple-900/30",
+        badgeText: "text-purple-800 dark:text-purple-200",
+        iconColor: "text-purple-600 dark:text-purple-400",
+        iconBg: "bg-purple-100 dark:bg-purple-900/30"
+    },
+    orange: {
+        badgeBg: "bg-orange-100 dark:bg-orange-900/30",
+        badgeText: "text-orange-800 dark:text-orange-200",
+        iconColor: "text-orange-600 dark:text-orange-400",
+        iconBg: "bg-orange-100 dark:bg-orange-900/30"
+    }
+}
+
 const features = [
     {
         category: "PII Detection & Masking",
         icon: Shield,
-        color: "blue",
+        color: "blue" as keyof typeof colorStyles,
         items: [
             {
                 title: "Deterministic Detection",
@@ -52,7 +79,7 @@ const features = [
     {
         category: "Smart Routing",
         icon: ArrowRight,
-        color: "green",
+        color: "green" as keyof typeof colorStyles,
         items: [
             {
                 title: "Multi-Provider Support",
@@ -79,7 +106,7 @@ const features = [
     {
         category: "Audit & Compliance",
         icon: FileSearch,
-        color: "purple",
+        color: "purple" as keyof typeof colorStyles,
         items: [
             {
                 title: "Complete Audit Trails",
@@ -106,7 +133,7 @@ const features = [
     {
         category: "Developer Experience",
         icon: Code,
-        color: "orange",
+        color: "orange" as keyof typeof colorStyles,
         items: [
             {
                 title: "OpenAI-Compatible API",
@@ -203,9 +230,9 @@ export default function ProductPage() {
                                 return (
                                     <div key={category.category} className="relative">
                                         <div className="text-center mb-12">
-                                            <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full bg-${category.color}-100 dark:bg-${category.color}-900/30 mb-4`}>
-                                                <CategoryIcon className={`h-6 w-6 text-${category.color}-600 dark:text-${category.color}-400`} />
-                                                <h3 className={`text-xl font-semibold text-${category.color}-800 dark:text-${category.color}-200`}>
+                                            <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full mb-4 ${colorStyles[category.color].badgeBg}`}>
+                                                <CategoryIcon className={`h-6 w-6 ${colorStyles[category.color].iconColor}`} />
+                                                <h3 className={`text-xl font-semibold ${colorStyles[category.color].badgeText}`}>
                                                     {category.category}
                                                 </h3>
                                             </div>
@@ -217,8 +244,8 @@ export default function ProductPage() {
                                                 return (
                                                     <Card key={feature.title} className="glass-card hover-lift">
                                                         <CardHeader>
-                                                            <div className={`w-12 h-12 rounded-lg bg-${category.color}-100 dark:bg-${category.color}-900/30 flex items-center justify-center mb-4`}>
-                                                                <FeatureIcon className={`h-6 w-6 text-${category.color}-600 dark:text-${category.color}-400`} />
+                                                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${colorStyles[category.color].iconBg}`}>
+                                                                <FeatureIcon className={`h-6 w-6 ${colorStyles[category.color].iconColor}`} />
                                                             </div>
                                                             <CardTitle className="text-lg">{feature.title}</CardTitle>
                                                             <CardDescription className="leading-relaxed">
