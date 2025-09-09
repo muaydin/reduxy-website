@@ -171,34 +171,13 @@
     @apply text-white border-0 shadow-md transition-all duration-300;
   }
 
-  /* Section spacing improvements - Mobile optimized with reduced gaps */
+  /* Section spacing improvements - Mobile optimized */
   .section-padding {
-    @apply py-8 sm:py-12 md:py-16 lg:py-20;
+    @apply py-12 sm:py-16 md:py-24 lg:py-32;
   }
 
   .section-padding-sm {
-    @apply py-6 sm:py-8 md:py-12 lg:py-16;
-  }
-
-  /* Colorful section backgrounds */
-  .section-blue {
-    @apply bg-gradient-to-br from-blue-50/50 to-indigo-50/50 dark:from-blue-950/20 dark:to-indigo-950/20;
-  }
-
-  .section-purple {
-    @apply bg-gradient-to-br from-purple-50/50 to-pink-50/50 dark:from-purple-950/20 dark:to-pink-950/20;
-  }
-
-  .section-green {
-    @apply bg-gradient-to-br from-emerald-50/50 to-teal-50/50 dark:from-emerald-950/20 dark:to-teal-950/20;
-  }
-
-  .section-orange {
-    @apply bg-gradient-to-br from-orange-50/50 to-amber-50/50 dark:from-orange-950/20 dark:to-amber-950/20;
-  }
-
-  .section-gray {
-    @apply bg-gradient-to-br from-slate-50/50 to-gray-50/50 dark:from-slate-950/20 dark:to-gray-950/20;
+    @apply py-8 sm:py-12 md:py-16 lg:py-20;
   }
 
   /* Typography enhancements - Mobile optimized */

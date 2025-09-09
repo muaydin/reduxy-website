@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -66,10 +66,7 @@ export function SiteHeader() {
                             <span className="sr-only">Toggle Menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="pr-0 w-80 sm:w-96 !bg-white dark:!bg-gray-950 border-r shadow-xl">
-                        <SheetHeader className="sr-only">
-                            <SheetTitle>Navigation Menu</SheetTitle>
-                        </SheetHeader>
+                    <SheetContent side="left" className="pr-0">
                         <MobileNav />
                     </SheetContent>
                 </Sheet>
@@ -111,37 +108,29 @@ export function SiteHeader() {
 
 function MobileNav() {
     return (
-        <div className="flex flex-col h-full !bg-white dark:!bg-gray-950 min-h-screen">
-            {/* Logo */}
-            <div className="flex items-center space-x-2 px-2 py-4 border-b border-border">
-                <div className="h-8 w-8 rounded bg-gradient-to-br from-primary to-primary/80" />
-                <span className="font-bold text-lg">Reduxy.ai</span>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="flex flex-col space-y-1 p-4 flex-1">
-                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-                    Navigation
-                </div>
+        <div className="flex flex-col space-y-3">
+            <Link href="/" className="flex items-center space-x-2">
+                <div className="h-6 w-6 rounded bg-primary" />
+                <span className="font-bold">Reduxy.ai</span>
+            </Link>
+            <div className="flex flex-col space-y-2">
                 {navigation.map((item) => (
                     <Link
                         key={item.name}
                         href={item.href}
-                        className="flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-colors hover:bg-accent hover:text-accent-foreground"
+                        className="text-foreground/70 transition-colors hover:text-foreground"
                     >
                         {item.name}
                     </Link>
                 ))}
             </div>
-
-            {/* Action Buttons - Only visible on mobile */}
-            <div className="p-4 border-t border-border space-y-3 md:hidden">
-                <Button asChild variant="ghost" className="w-full justify-start" size="lg">
+            <div className="flex flex-col space-y-2 pt-4">
+                <Button asChild variant="ghost" className="justify-start">
                     <Link href="/docs/getting-started">
                         Get Started
                     </Link>
                 </Button>
-                <Button asChild className="w-full justify-start btn-gradient" size="lg">
+                <Button asChild className="justify-start">
                     <Link href="/contact">
                         Talk to Sales
                     </Link>
