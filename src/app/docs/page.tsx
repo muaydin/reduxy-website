@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CodeTabs, chatCompletionExamples } from "@/components/code-tabs"
@@ -46,7 +45,7 @@ export default function DocsPage() {
                 {/* Header */}
                 <section className="section-padding-sm bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20">
                     <div className="content-width flex flex-col items-center gap-6 text-center">
-                        <Badge variant="outline">Documentation</Badge>
+                        <div className="badge-section">Documentation</div>
                         <h1 className="heading-1">
                             Get started with Reduxy.ai
                         </h1>
@@ -69,9 +68,9 @@ export default function DocsPage() {
                                                 <div className="rounded-lg bg-primary/10 p-2">
                                                     <Icon className="h-5 w-5 text-primary" />
                                                 </div>
-                                                <Badge variant="secondary" className="text-xs">
+                                                <div className="badge-feature text-xs">
                                                     {guide.time}
-                                                </Badge>
+                                                </div>
                                             </div>
                                             <CardTitle className="text-lg">{guide.title}</CardTitle>
                                             <CardDescription>{guide.description}</CardDescription>

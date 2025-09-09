@@ -37,7 +37,7 @@ export default function HomePage() {
                 {/* How it works */}
                 <section className="section-padding">
                     <div className="content-width flex flex-col items-center gap-6 text-center">
-                        <Badge variant="outline">How It Works</Badge>
+                        <div className="badge-section">How It Works</div>
                         <h2 className="heading-2">
                             Privacy-first AI gateway
                         </h2>
@@ -97,7 +97,7 @@ export default function HomePage() {
                 {/* Code Examples */}
                 <section className="section-padding bg-muted/20">
                     <div className="content-width flex flex-col items-center gap-6 text-center">
-                        <Badge variant="outline">Quick Start</Badge>
+                        <div className="badge-section">Quick Start</div>
                         <h2 className="heading-2">
                             OpenAI-compatible API
                         </h2>

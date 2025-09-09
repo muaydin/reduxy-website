@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Shield, FileSearch } from "lucide-react"
 
 export function Hero() {
@@ -9,9 +8,9 @@ export function Hero() {
             <div className="absolute inset-0 bg-grid-black/[0.02] bg-[size:50px_50px]" />
             <div className="relative content-width section-padding">
                 <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
-                    <Badge variant="outline" className="mb-4 hover-lift">
-                        🎉 Now supporting OpenAI, Anthropic, and more
-                    </Badge>
+                    <div className="badge-premium mb-6">
+                        ✨ Now supporting OpenAI, Anthropic, and more
+                    </div>
 
                     <h1 className="heading-1">
                         A privacy gateway for{" "}

@@ -97,7 +97,7 @@ export default function PricingPage() {
             <main className="flex-1">
                 <div className="section-padding">
                     <div className="content-width flex flex-col items-center gap-6 text-center">
-                        <Badge variant="outline">Pricing</Badge>
+                        <div className="badge-section">Pricing</div>
                         <h1 className="heading-1">
                             Simple, transparent pricing
                         </h1>

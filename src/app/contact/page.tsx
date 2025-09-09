@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -15,7 +14,7 @@ export default function ContactPage() {
             <main className="flex-1">
                 <div className="container py-8 md:py-12 lg:py-24">
                     <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
-                        <Badge variant="outline">Contact</Badge>
+                        <div className="badge-section">Contact</div>
                         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
                             Get in touch
                         </h1>

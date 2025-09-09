@@ -71,6 +71,24 @@ export function CodeTabs({ examples, className }: CodeTabsProps) {
 // Pre-defined code examples for common use cases
 export const chatCompletionExamples: CodeExample[] = [
     {
+        language: "python-sdk",
+        label: "Reduxy SDK",
+        code: `from reduxy import Client
+
+# Initialize client (connects to https://api.reduxy.ai by default)
+client = Client(api_key="your_reduxy_api_key")
+
+# Make a chat completion request with automatic PII detection
+response = client.chat.completions.create(
+    messages=[
+        {"role": "user", "content": "Hello! How are you today?"}
+    ],
+    model="gpt-4o"
+)
+
+print(response)`
+    },
+    {
         language: "curl",
         label: "cURL",
         code: `curl https://api.reduxy.ai/v1/chat/completions \\
@@ -115,23 +133,5 @@ r = requests.post(
   timeout=30
 )
 print(r.json())`
-    },
-    {
-        language: "python-sdk",
-        label: "Reduxy SDK",
-        code: `from reduxy import Client
-
-# Initialize client (connects to https://api.reduxy.ai by default)
-client = Client(api_key="your_reduxy_api_key")
-
-# Make a chat completion request with automatic PII detection
-response = client.chat.completions.create(
-    messages=[
-        {"role": "user", "content": "Hello! How are you today?"}
-    ],
-    model="gpt-4o"
-)
-
-print(response)`
     }
 ] 
