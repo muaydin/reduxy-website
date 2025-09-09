@@ -66,7 +66,7 @@ export function SiteHeader() {
                             <span className="sr-only">Toggle Menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="pr-0">
+                    <SheetContent side="left" className="pr-0 w-80 sm:w-96">
                         <MobileNav />
                     </SheetContent>
                 </Sheet>
@@ -108,29 +108,37 @@ export function SiteHeader() {
 
 function MobileNav() {
     return (
-        <div className="flex flex-col space-y-3">
-            <Link href="/" className="flex items-center space-x-2">
-                <div className="h-6 w-6 rounded bg-primary" />
-                <span className="font-bold">Reduxy.ai</span>
-            </Link>
-            <div className="flex flex-col space-y-2">
+        <div className="flex flex-col h-full">
+            {/* Logo */}
+            <div className="flex items-center space-x-2 px-2 py-4 border-b">
+                <div className="h-8 w-8 rounded bg-gradient-to-br from-primary to-primary/80" />
+                <span className="font-bold text-lg">Reduxy.ai</span>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex flex-col space-y-1 p-4 flex-1">
+                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                    Navigation
+                </div>
                 {navigation.map((item) => (
                     <Link
                         key={item.name}
                         href={item.href}
-                        className="text-foreground/70 transition-colors hover:text-foreground"
+                        className="flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-colors hover:bg-accent hover:text-accent-foreground"
                     >
                         {item.name}
                     </Link>
                 ))}
             </div>
-            <div className="flex flex-col space-y-2 pt-4">
-                <Button asChild variant="ghost" className="justify-start">
+
+            {/* Action Buttons */}
+            <div className="p-4 border-t space-y-3">
+                <Button asChild variant="ghost" className="w-full justify-start" size="lg">
                     <Link href="/docs/getting-started">
                         Get Started
                     </Link>
                 </Button>
-                <Button asChild className="justify-start">
+                <Button asChild className="w-full justify-start btn-gradient" size="lg">
                     <Link href="/contact">
                         Talk to Sales
                     </Link>
