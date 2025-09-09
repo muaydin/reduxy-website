@@ -4,8 +4,16 @@ import { ArrowRight, Shield, FileSearch } from "lucide-react"
 
 export function Hero() {
     return (
-        <section className="relative overflow-hidden hero-gradient">
-            <div className="absolute inset-0 bg-grid-black/[0.02] bg-[size:50px_50px]" />
+        <section className="relative overflow-hidden hero-gradient dark:hero-gradient-dark">
+            {/* Animated background elements */}
+            <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02] bg-[size:50px_50px]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-white/[0.02]" />
+
+            {/* Floating geometric shapes */}
+            <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl animate-pulse" />
+            <div className="absolute top-40 right-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000" />
+            <div className="absolute bottom-40 left-20 w-24 h-24 bg-pink-500/10 rounded-full blur-xl animate-pulse delay-2000" />
+            <div className="absolute bottom-20 right-10 w-16 h-16 bg-indigo-500/10 rounded-full blur-xl animate-pulse delay-500" />
             <div className="relative content-width section-padding">
                 <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 sm:gap-6 text-center">
                     <div className="badge-premium mb-6">
