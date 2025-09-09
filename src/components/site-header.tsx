@@ -66,7 +66,7 @@ export function SiteHeader() {
                             <span className="sr-only">Toggle Menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="pr-0">
+                    <SheetContent side="left" className="pr-0 w-80 sm:w-96 !bg-white dark:!bg-gray-950 border-r shadow-xl">
                         <MobileNav />
                     </SheetContent>
                 </Sheet>
@@ -108,7 +108,7 @@ export function SiteHeader() {
 
 function MobileNav() {
     return (
-        <div className="flex flex-col space-y-3">
+        <div className="flex flex-col h-full !bg-white dark:!bg-gray-950 min-h-screen">
             <Link href="/" className="flex items-center space-x-2">
                 <div className="h-6 w-6 rounded bg-primary" />
                 <span className="font-bold">Reduxy.ai</span>
