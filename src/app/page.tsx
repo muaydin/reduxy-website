@@ -102,7 +102,7 @@ export default function HomePage() {
                             OpenAI-compatible API
                         </h2>
                         <p className="max-w-[750px] text-xl text-muted-foreground sm:text-2xl leading-relaxed">
-                            Drop-in replacement for OpenAI&apos;s API. Change one URL and get instant PII protection.
+                            Drop-in replacement for OpenAI&apos;s API. Use our SDK or change one URL to get instant PII protection.
                         </p>
                     </div>
 
@@ -123,11 +123,11 @@ export default function HomePage() {
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <CheckCircle className="h-4 w-4 text-green-600" />
-                                        <span className="text-sm">Zero-copy masking with vault</span>
+                                        <span className="text-sm">Python SDK for easy integration</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <CheckCircle className="h-4 w-4 text-green-600" />
-                                        <span className="text-sm">Configurable detection rules</span>
+                                        <span className="text-sm">Zero-copy masking with vault</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <CheckCircle className="h-4 w-4 text-green-600" />

@@ -33,7 +33,7 @@ export function CodeTabs({ examples, className }: CodeTabsProps) {
     return (
         <div className={cn("w-full", className)}>
             <Tabs defaultValue={examples[0]?.language} className="w-full">
-                <TabsList className="grid w-full grid-cols-3">
+                <TabsList className="grid w-full grid-cols-4">
                     {examples.map((example) => (
                         <TabsTrigger key={example.language} value={example.language}>
                             {example.label}
@@ -99,7 +99,7 @@ export const chatCompletionExamples: CodeExample[] = [
 const data = await res.json();`
     },
     {
-        language: "python",
+        language: "python-requests",
         label: "Python",
         code: `import os, requests
 r = requests.post(
@@ -115,5 +115,23 @@ r = requests.post(
   timeout=30
 )
 print(r.json())`
+    },
+    {
+        language: "python-sdk",
+        label: "Reduxy SDK",
+        code: `from reduxy import Client
+
+# Initialize client (connects to https://api.reduxy.ai by default)
+client = Client(api_key="your_reduxy_api_key")
+
+# Make a chat completion request with automatic PII detection
+response = client.chat.completions.create(
+    messages=[
+        {"role": "user", "content": "Hello! How are you today?"}
+    ],
+    model="gpt-4o"
+)
+
+print(response)`
     }
 ] 
