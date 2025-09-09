@@ -66,7 +66,7 @@ export function SiteHeader() {
                             <span className="sr-only">Toggle Menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="pr-0 w-80 sm:w-96">
+                    <SheetContent side="left" className="pr-0 w-80 sm:w-96 !bg-white dark:!bg-gray-950 border-r shadow-xl">
                         <SheetHeader className="sr-only">
                             <SheetTitle>Navigation Menu</SheetTitle>
                         </SheetHeader>
@@ -111,7 +111,7 @@ export function SiteHeader() {
 
 function MobileNav() {
     return (
-        <div className="flex flex-col h-full bg-background">
+        <div className="flex flex-col h-full !bg-white dark:!bg-gray-950 min-h-screen">
             {/* Logo */}
             <div className="flex items-center space-x-2 px-2 py-4 border-b border-border">
                 <div className="h-8 w-8 rounded bg-gradient-to-br from-primary to-primary/80" />
