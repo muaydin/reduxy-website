@@ -47,10 +47,10 @@ export default function HomePage() {
                     </div>
 
                     {/* Architecture Diagram */}
-                    <div className="mx-auto mt-16 max-w-6xl">
-                        <div className="flex items-center justify-between space-x-6">
+                    <div className="mx-auto mt-12 sm:mt-16 max-w-6xl">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 sm:space-x-4 lg:space-x-6">
                             <Card className="flex-1 hover-lift glass-card">
-                                <CardContent className="p-8 text-center">
+                                <CardContent className="mobile-card text-center">
                                     <div className="mx-auto h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-4">
                                         <Globe className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                                     </div>
@@ -61,10 +61,10 @@ export default function HomePage() {
                                 </CardContent>
                             </Card>
 
-                            <ArrowRight className="h-6 w-6 text-muted-foreground" />
+                            <ArrowRight className="h-5 w-5 text-muted-foreground mx-auto sm:mx-0 rotate-90 sm:rotate-0" />
 
                             <Card className="flex-1 hover-lift pricing-card-popular">
-                                <CardContent className="p-8 text-center">
+                                <CardContent className="mobile-card text-center">
                                     <div className="mx-auto h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                                         <Shield className="h-6 w-6 text-primary" />
                                     </div>
@@ -75,10 +75,10 @@ export default function HomePage() {
                                 </CardContent>
                             </Card>
 
-                            <ArrowRight className="h-6 w-6 text-muted-foreground" />
+                            <ArrowRight className="h-5 w-5 text-muted-foreground mx-auto sm:mx-0 rotate-90 sm:rotate-0" />
 
                             <Card className="flex-1 hover-lift glass-card">
-                                <CardContent className="p-8 text-center">
+                                <CardContent className="mobile-card text-center">
                                     <div className="mx-auto h-12 w-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4">
                                         <Zap className="h-6 w-6 text-green-600 dark:text-green-400" />
                                     </div>

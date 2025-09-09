@@ -33,7 +33,7 @@ export function CodeTabs({ examples, className }: CodeTabsProps) {
     return (
         <div className={cn("w-full", className)}>
             <Tabs defaultValue={examples[0]?.language} className="w-full">
-                <TabsList className="grid w-full grid-cols-4">
+                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 gap-1">
                     {examples.map((example) => (
                         <TabsTrigger key={example.language} value={example.language}>
                             {example.label}

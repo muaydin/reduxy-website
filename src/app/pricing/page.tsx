@@ -107,7 +107,7 @@ export default function PricingPage() {
                     </div>
 
                     {/* Pricing Cards */}
-                    <div className="mx-auto mt-20 grid max-w-7xl gap-8 lg:grid-cols-3">
+                    <div className="mx-auto mt-12 sm:mt-20 grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-3">
                         {pricingTiers.map((tier) => (
                             <Card
                                 key={tier.name}
