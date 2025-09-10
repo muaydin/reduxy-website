@@ -9,11 +9,38 @@ export function Hero() {
             <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02] bg-[size:50px_50px]" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-white/[0.02]" />
 
-            {/* Floating geometric shapes */}
-            <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl animate-pulse" />
-            <div className="absolute top-40 right-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000" />
-            <div className="absolute bottom-40 left-20 w-24 h-24 bg-pink-500/10 rounded-full blur-xl animate-pulse delay-2000" />
-            <div className="absolute bottom-20 right-10 w-16 h-16 bg-indigo-500/10 rounded-full blur-xl animate-pulse delay-500" />
+            {/* Enhanced animated gradient overlays */}
+            <div aria-hidden className="pointer-events-none absolute inset-0">
+                <div className="absolute inset-0 bg-[radial-gradient(600px_circle_at_30%_20%,rgba(99,102,241,0.15),transparent_50%)] dark:bg-[radial-gradient(600px_circle_at_30%_20%,rgba(99,102,241,0.08),transparent_50%)] animate-pulse" />
+                <div className="absolute inset-0 bg-[radial-gradient(800px_circle_at_70%_80%,rgba(147,51,234,0.12),transparent_60%)] dark:bg-[radial-gradient(800px_circle_at_70%_80%,rgba(147,51,234,0.06),transparent_60%)] animate-pulse" style={{ animationDelay: '1s' }} />
+                <div className="absolute inset-0 bg-[radial-gradient(700px_circle_at_50%_50%,rgba(236,72,153,0.08),transparent_50%)] dark:bg-[radial-gradient(700px_circle_at_50%_50%,rgba(236,72,153,0.04),transparent_50%)] animate-pulse" style={{ animationDelay: '2s' }} />
+            </div>
+
+            {/* Dynamic light beams */}
+            <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+                <div className="absolute -top-1/2 left-1/4 h-[150vh] w-[1px] bg-gradient-to-b from-indigo-500/20 via-purple-500/30 to-transparent rotate-12 animate-pulse opacity-60" />
+                <div className="absolute -top-1/2 right-1/3 h-[150vh] w-[1px] bg-gradient-to-b from-pink-500/20 via-indigo-500/30 to-transparent -rotate-12 animate-pulse opacity-40" style={{ animationDelay: '1.5s' }} />
+                <div className="absolute -top-1/2 left-2/3 h-[150vh] w-[1px] bg-gradient-to-b from-emerald-500/20 via-blue-500/30 to-transparent rotate-6 animate-pulse opacity-50" style={{ animationDelay: '3s' }} />
+            </div>
+
+            {/* Floating colorful orbs */}
+            <div aria-hidden className="pointer-events-none absolute inset-0">
+                <div className="absolute top-1/4 left-1/6 w-32 h-32 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-full blur-2xl animate-pulse" />
+                <div className="absolute top-1/3 right-1/5 w-40 h-40 bg-gradient-to-r from-pink-500/15 to-indigo-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+                <div className="absolute bottom-1/3 left-1/4 w-36 h-36 bg-gradient-to-r from-emerald-500/18 to-blue-500/18 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+                <div className="absolute bottom-1/4 right-1/3 w-28 h-28 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '3s' }} />
+            </div>
+
+            {/* Enhanced floating geometric shapes with gradient backgrounds */}
+            <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-full blur-xl animate-pulse shadow-glow" />
+            <div className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-pulse delay-1000 shadow-glow-purple" />
+            <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-full blur-xl animate-pulse delay-2000" />
+            <div className="absolute bottom-20 right-10 w-16 h-16 bg-gradient-to-br from-indigo-500/20 to-emerald-500/20 rounded-full blur-xl animate-pulse delay-500" />
+
+            {/* Additional accent shapes */}
+            <div className="absolute top-1/2 left-5 w-6 h-6 bg-gradient-to-r from-emerald-400/30 to-blue-400/30 rounded-full animate-pulse delay-1500" />
+            <div className="absolute top-3/4 right-8 w-8 h-8 bg-gradient-to-r from-indigo-400/30 to-purple-400/30 rounded-full animate-pulse delay-2500" />
+
             <div className="relative content-width section-padding">
                 <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 sm:gap-6 text-center">
                     <div className="badge-premium mb-6">
