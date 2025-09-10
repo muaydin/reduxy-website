@@ -25,7 +25,7 @@ const pricingTiers = [
             "No custom rules",
         ],
         ctaText: "Get Started",
-        ctaLink: "/docs/getting-started",
+        ctaLink: "https://dashboard.reduxy.ai/register",
         popular: false,
     },
     {
@@ -46,7 +46,7 @@ const pricingTiers = [
         ],
         limitations: [],
         ctaText: "Start Free Trial",
-        ctaLink: "/contact",
+        ctaLink: "https://dashboard.reduxy.ai/register",
         popular: true,
     },
     {
@@ -260,7 +260,7 @@ export default function PricingPage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button asChild size="lg">
-                                <Link href="/docs/getting-started">Start Free</Link>
+                                <Link href="https://dashboard.reduxy.ai/register">Start Free</Link>
                             </Button>
                             <Button asChild variant="outline" size="lg">
                                 <Link href="/contact">Contact Sales</Link>

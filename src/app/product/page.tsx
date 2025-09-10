@@ -205,7 +205,7 @@ export default function ProductPage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 mt-8">
                             <Button asChild size="lg" className="btn-gradient">
-                                <Link href="/contact">Start Free Trial</Link>
+                                <Link href="https://dashboard.reduxy.ai/register">Start Free Trial</Link>
                             </Button>
                             <Button asChild variant="outline" size="lg" className="hover-lift">
                                 <Link href="/docs">View Documentation</Link>
@@ -318,7 +318,7 @@ export default function ProductPage() {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Button asChild size="lg" className="btn-gradient">
-                                    <Link href="/contact">Get Started Free</Link>
+                                    <Link href="https://dashboard.reduxy.ai/register">Get Started Free</Link>
                                 </Button>
                                 <Button asChild variant="outline" size="lg">
                                     <Link href="/pricing">View Pricing</Link>

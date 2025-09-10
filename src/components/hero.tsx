@@ -60,14 +60,14 @@ export function Hero() {
 
                     <div className="flex flex-col gap-3 sm:gap-4 min-[400px]:flex-row mt-6 sm:mt-8 w-full max-w-md sm:max-w-none justify-center items-center">
                         <Button asChild size="lg" className="btn-gradient gap-2 hover-lift">
-                            <Link href="/docs/getting-started">
-                                Get Started
+                            <Link href="https://dashboard.reduxy.ai/register">
+                                Get Started Free
                                 <ArrowRight className="h-4 w-4" />
                             </Link>
                         </Button>
                         <Button asChild variant="outline" size="lg" className="hover-lift">
-                            <Link href="/contact">
-                                Talk to Sales
+                            <Link href="https://dashboard.reduxy.ai/login">
+                                Sign In
                             </Link>
                         </Button>
                     </div>

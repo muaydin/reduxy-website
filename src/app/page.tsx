@@ -221,8 +221,8 @@ export default function HomePage() {
                         </p>
                         <div className="flex flex-col gap-4 min-[400px]:flex-row">
                             <Button asChild size="lg" className="gap-2">
-                                <Link href="/docs/getting-started">
-                                    View Documentation
+                                <Link href="https://dashboard.reduxy.ai/register">
+                                    Get Started Free
                                     <ArrowRight className="h-4 w-4" />
                                 </Link>
                             </Button>

@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Moon, Sun } from "lucide-react"
+import { Menu, Moon, Sun, LogIn, UserPlus } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
@@ -89,14 +89,18 @@ export function SiteHeader() {
                             <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                             <span className="sr-only">Toggle theme</span>
                         </Button>
-                        <Button asChild size="sm" variant="ghost" className="hidden sm:inline-flex">
-                            <Link href="/docs/getting-started">
-                                Get Started
+
+                        {/* Authentication Buttons */}
+                        <Button asChild size="sm" variant="ghost" className="hidden sm:inline-flex gap-2">
+                            <Link href="https://dashboard.reduxy.ai/login">
+                                <LogIn className="h-4 w-4" />
+                                Login
                             </Link>
                         </Button>
-                        <Button asChild size="sm" className="hidden sm:inline-flex">
-                            <Link href="/contact">
-                                Talk to Sales
+                        <Button asChild size="sm" className="hidden sm:inline-flex gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                            <Link href="https://dashboard.reduxy.ai/register">
+                                <UserPlus className="h-4 w-4" />
+                                Get Started
                             </Link>
                         </Button>
                     </nav>
@@ -108,31 +112,35 @@ export function SiteHeader() {
 
 function MobileNav() {
     return (
-        <div className="flex flex-col h-full !bg-white dark:!bg-gray-950 min-h-screen">
+        <div className="flex flex-col h-full !bg-white dark:!bg-gray-950 min-h-screen space-y-6 p-6">
             <Link href="/" className="flex items-center space-x-2">
                 <div className="h-6 w-6 rounded bg-primary" />
                 <span className="font-bold">Reduxy.ai</span>
             </Link>
-            <div className="flex flex-col space-y-2">
+
+            <div className="flex flex-col space-y-3">
                 {navigation.map((item) => (
                     <Link
                         key={item.name}
                         href={item.href}
-                        className="text-foreground/70 transition-colors hover:text-foreground"
+                        className="text-foreground/70 transition-colors hover:text-foreground py-2"
                     >
                         {item.name}
                     </Link>
                 ))}
             </div>
-            <div className="flex flex-col space-y-2 pt-4">
-                <Button asChild variant="ghost" className="justify-start">
-                    <Link href="/docs/getting-started">
-                        Get Started
+
+            <div className="flex flex-col space-y-3 pt-4 border-t">
+                <Button asChild variant="ghost" className="justify-start gap-2">
+                    <Link href="https://dashboard.reduxy.ai/login">
+                        <LogIn className="h-4 w-4" />
+                        Login
                     </Link>
                 </Button>
-                <Button asChild className="justify-start">
-                    <Link href="/contact">
-                        Talk to Sales
+                <Button asChild className="justify-start gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                    <Link href="https://dashboard.reduxy.ai/register">
+                        <UserPlus className="h-4 w-4" />
+                        Get Started
                     </Link>
                 </Button>
             </div>
