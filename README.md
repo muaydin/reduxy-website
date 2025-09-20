@@ -26,6 +26,7 @@ src/
 │   │   ├── contact/         # Contact page
 │   │   ├── pricing/         # Pricing page
 │   │   └── layout.tsx       # Marketing layout with header/footer
+│   ├── demo/                # Interactive PII detection demo
 │   ├── globals.css          # Global styles
 │   ├── layout.tsx           # Root layout
 │   └── page.tsx             # Homepage
@@ -38,6 +39,27 @@ src/
 └── lib/
     └── utils.ts             # Utility functions
 ```
+
+## ✨ Key Features
+
+### Interactive Demo Page (`/demo`)
+- **Live PII Detection**: Real-time demonstration of our marketing redaction endpoint
+- **500 Character Limit**: Showcases the endpoint's built-in limitations for demo purposes
+- **No Authentication Required**: Public endpoint for easy testing and demonstrations
+- **Advanced NLP**: Powered by spaCy's en_core_web_lg model with transformer capabilities
+- **Beautiful Results Display**: 
+  - Side-by-side comparison of original vs. redacted text
+  - Detailed PII entity breakdown with confidence scores
+  - Performance metrics and processing time
+  - Color-coded entity types for easy identification
+- **Example Text Library**: Pre-built examples for quick testing
+- **Real-time API Integration**: Direct connection to production marketing endpoint
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+
+### Marketing Integration
+- **Hero Section CTA**: "Try Live Demo" button prominently featured
+- **Seamless Navigation**: Integrated with existing site navigation
+- **Brand Consistent**: Matches the existing design system and UI components
 
 ## 🏃‍♂️ Getting Started
 

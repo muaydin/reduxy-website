@@ -65,7 +65,16 @@ export function Hero() {
                                 <ArrowRight className="h-4 w-4" />
                             </Link>
                         </Button>
-                        <Button asChild variant="outline" size="lg" className="hover-lift">
+                        <Button asChild variant="outline" size="lg" className="hover-lift gap-2">
+                            <Link href="/demo">
+                                <FileSearch className="h-4 w-4" />
+                                Try Live Demo
+                            </Link>
+                        </Button>
+                    </div>
+
+                    <div className="flex flex-col gap-2 sm:flex-row sm:gap-4 mt-4 justify-center items-center">
+                        <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
                             <Link href="https://dashboard.reduxy.ai/login">
                                 Sign In
                             </Link>
