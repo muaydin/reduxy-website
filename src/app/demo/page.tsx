@@ -79,7 +79,9 @@ export default function DemoPage() {
         setResult(null)
 
         try {
-            const response = await fetch('https://reduxy-gateway-269323018133.us-central1.run.app/chat/marketing-redact', {
+            // Use environment variable for gateway URL (configurable in Vercel)
+            const gatewayUrl = process.env.NEXT_PUBLIC_REDUXY_GATEWAY_ADDRESS || 'https://reduxy-gateway-269323018133.us-central1.run.app'
+            const response = await fetch(`${gatewayUrl}/chat/marketing-redact`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

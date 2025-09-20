@@ -54,6 +54,7 @@ src/
   - Color-coded entity types for easy identification
 - **Example Text Library**: Pre-built examples for quick testing
 - **Real-time API Integration**: Direct connection to production marketing endpoint
+- **Configurable Gateway URL**: Uses `NEXT_PUBLIC_REDUXY_GATEWAY_ADDRESS` environment variable
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 
 ### Marketing Integration
@@ -84,6 +85,12 @@ npm install
 3. Set up environment variables:
 ```bash
 cp .env.example .env.local
+```
+
+Add the following to your `.env.local`:
+```bash
+# Gateway Configuration for Demo Page
+NEXT_PUBLIC_REDUXY_GATEWAY_ADDRESS=https://your-gateway-url.com
 ```
 
 4. Run the development server:
