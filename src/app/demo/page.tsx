@@ -43,11 +43,11 @@ interface RedactionResponse {
 }
 
 const EXAMPLE_TEXTS = [
-    "Hi! I'm John Doe and my email is john@example.com. My phone is 555-123-4567.",
-    "Contact Sarah Johnson at sarah.johnson@company.com or call her at +1-555-987-6543.",
-    "John Smith (john@company.com) and Jane Doe (jane@company.com) attended the meeting. John Smith will follow up.",
+    "Hi! I'm Hiroshi Tanaka and my email is hiroshi.tanaka@example.com. My phone is +81-90-1234-5678.",
+    "Contact María González at maria.gonzalez@empresa.com or call her at +34-612-345-678.",
+    "Ahmed Hassan (ahmed@company.com) and Priya Sharma (priya@company.com) attended the meeting. Ahmed Hassan will follow up.",
     "My credit card number is 4532-1234-5678-9012 and my SSN is 123-45-6789.",
-    "Dr. Emily Rodriguez works at Stanford Hospital. Reach her at emily.r@stanford.edu or call Emily Rodriguez directly."
+    "Dr. Oleksandr Petrov works at Kiev Medical Center. Reach him at o.petrov@kmc.ua or call Oleksandr Petrov directly."
 ]
 
 const ENTITY_TYPE_COLORS: Record<string, string> = {
