@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 
 const navigation = [
     { name: "Product", href: "/product" },
+    { name: "Demo", href: "/demo", highlight: true },
     { name: "Docs", href: "/docs" },
     { name: "Pricing", href: "/pricing" },
     { name: "Security", href: "/security" },
@@ -46,10 +47,15 @@ export function SiteHeader() {
                                 href={item.href}
                                 className={cn(
                                     "transition-colors hover:text-foreground/80",
-                                    "text-foreground/60"
+                                    item.highlight
+                                        ? "text-blue-600 dark:text-blue-400 font-semibold relative"
+                                        : "text-foreground/60"
                                 )}
                             >
                                 {item.name}
+                                {item.highlight && (
+                                    <span className="absolute -top-1 -right-2 h-2 w-2 bg-blue-500 rounded-full animate-pulse" />
+                                )}
                             </Link>
                         ))}
                     </nav>
@@ -123,9 +129,17 @@ function MobileNav() {
                     <Link
                         key={item.name}
                         href={item.href}
-                        className="text-foreground/70 transition-colors hover:text-foreground py-2"
+                        className={cn(
+                            "transition-colors hover:text-foreground py-2 relative",
+                            item.highlight
+                                ? "text-blue-600 dark:text-blue-400 font-semibold"
+                                : "text-foreground/70"
+                        )}
                     >
                         {item.name}
+                        {item.highlight && (
+                            <span className="absolute top-2 -right-2 h-2 w-2 bg-blue-500 rounded-full animate-pulse" />
+                        )}
                     </Link>
                 ))}
             </div>
