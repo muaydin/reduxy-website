@@ -45,9 +45,9 @@ interface RedactionResponse {
 const EXAMPLE_TEXTS = [
     "Hi! I'm John Doe and my email is john@example.com. My phone is 555-123-4567.",
     "Contact Sarah Johnson at sarah.johnson@company.com or call her at +1-555-987-6543.",
-    "Please send the invoice to Michael Chen (michael.chen@business.org) by December 15th.",
+    "John Smith (john@company.com) and Jane Doe (jane@company.com) attended the meeting. John Smith will follow up.",
     "My credit card number is 4532-1234-5678-9012 and my SSN is 123-45-6789.",
-    "Dr. Emily Rodriguez works at Stanford Hospital. Reach her at emily.r@stanford.edu."
+    "Dr. Emily Rodriguez works at Stanford Hospital. Reach her at emily.r@stanford.edu or call Emily Rodriguez directly."
 ]
 
 const ENTITY_TYPE_COLORS: Record<string, string> = {
@@ -96,7 +96,7 @@ export default function DemoPage() {
                     detection_options: {
                         enhanced: true,
                         enable_spacy: true,
-                        masking_strategy: 'token'
+                        masking_strategy: 'unique_token'
                     }
                 })
             })
@@ -147,8 +147,8 @@ export default function DemoPage() {
                             </h1>
 
                             <p className="max-w-[600px] text-lg text-muted-foreground sm:text-xl leading-relaxed">
-                                Try our advanced PII detection powered by transformer models.
-                                Enter any text containing personal information and see how Reduxy protects your data.
+                                Try our advanced PII detection with unique token masking powered by transformer models.
+                                Each entity gets a unique identifier, preserving relationships while protecting privacy.
                             </p>
 
                             <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -184,7 +184,7 @@ export default function DemoPage() {
                                             Try PII Detection
                                         </CardTitle>
                                         <CardDescription>
-                                            Enter text containing personal information to see how our AI detects and masks sensitive data.
+                                            Enter text containing personal information to see how our AI detects and masks sensitive data with unique tokens that preserve relationships.
                                         </CardDescription>
                                     </CardHeader>
                                     <CardContent className="space-y-4">
@@ -388,7 +388,7 @@ export default function DemoPage() {
                         <div className="text-center mb-12">
                             <h2 className="heading-2 mb-4">Powered by Advanced AI</h2>
                             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                                Our marketing endpoint showcases the same enterprise-grade technology used by leading companies.
+                                Our marketing endpoint showcases enterprise-grade PII detection with unique token masking used by leading companies.
                             </p>
                         </div>
 
@@ -422,9 +422,9 @@ export default function DemoPage() {
                                     <div className="h-12 w-12 mx-auto mb-4 rounded-lg bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center">
                                         <Shield className="h-6 w-6 text-purple-600" />
                                     </div>
-                                    <h3 className="font-semibold mb-2">Privacy First</h3>
+                                    <h3 className="font-semibold mb-2">Unique Token Masking</h3>
                                     <p className="text-sm text-muted-foreground">
-                                        No data stored, no authentication required for this demo
+                                        Each entity gets unique identifiers ([PERSON_1], [EMAIL_1]) preserving data relationships
                                     </p>
                                 </CardContent>
                             </Card>
