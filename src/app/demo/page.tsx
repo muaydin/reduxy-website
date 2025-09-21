@@ -43,11 +43,11 @@ interface RedactionResponse {
 }
 
 const EXAMPLE_TEXTS = [
-    "Hi! I'm Hiroshi Tanaka and my email is hiroshi.tanaka@example.com. My phone is +81-90-1234-5678.",
-    "Contact María González at maria.gonzalez@empresa.com or call her at +34-612-345-678.",
-    "Ahmed Hassan (ahmed@company.com) and Priya Sharma (priya@company.com) attended the meeting. Ahmed Hassan will follow up.",
-    "My credit card number is 4532-1234-5678-9012 and my SSN is 123-45-6789.",
-    "Dr. Oleksandr Petrov works at Kiev Medical Center. Reach him at o.petrov@kmc.ua or call Oleksandr Petrov directly."
+    "Dr. Hiroshi Tanaka (Medical License: MD123456789) works at Tokyo General Hospital. Contact him at hiroshi.tanaka@hospital.jp or +81-90-1234-5678. His IBAN is JP60 MUFG 0001 2345 6789 0123.",
+    "María González transferred €5,000 from IBAN ES91 2100 0418 4502 0005 1332 to her Bitcoin wallet 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa. Contact María González at maria.gonzalez@empresa.com or +34-612-345-678.",
+    "Ahmed Hassan (ahmed@company.com, SSN: 123-45-6789) and Priya Sharma (priya@company.com, UK NHS: 485 777 3456) attended the meeting. Ahmed Hassan's credit card 4532-1234-5678-9012 was used for expenses.",
+    "Passport holder US123456789 Mikhail Volkov flew from Moscow to New York on 2024-03-15. His crypto wallet bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh received $10,000 worth of Bitcoin.",
+    "Dr. Oleksandr Petrov (Medical License: UA987654321) transferred patient data to Kiev Medical Center. Contact Oleksandr Petrov at o.petrov@kmc.ua, phone +380-44-123-4567, or his backup crypto address 3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy."
 ]
 
 const ENTITY_TYPE_COLORS: Record<string, string> = {
@@ -55,12 +55,27 @@ const ENTITY_TYPE_COLORS: Record<string, string> = {
     'LAST_NAME': 'bg-green-100 text-green-800 border-green-200',
     'PERSON': 'bg-purple-100 text-purple-800 border-purple-200',
     'EMAIL_ADDRESS': 'bg-red-100 text-red-800 border-red-200',
+    'EMAIL': 'bg-red-100 text-red-800 border-red-200',
     'PHONE': 'bg-orange-100 text-orange-800 border-orange-200',
+    'PHONE_NUMBER': 'bg-orange-100 text-orange-800 border-orange-200',
     'CREDIT_CARD': 'bg-yellow-100 text-yellow-800 border-yellow-200',
     'SSN': 'bg-pink-100 text-pink-800 border-pink-200',
+    'US_SSN': 'bg-pink-100 text-pink-800 border-pink-200',
     'DATE': 'bg-indigo-100 text-indigo-800 border-indigo-200',
+    'DATE_TIME': 'bg-indigo-100 text-indigo-800 border-indigo-200',
     'ORG': 'bg-teal-100 text-teal-800 border-teal-200',
     'GPE': 'bg-cyan-100 text-cyan-800 border-cyan-200',
+    'LOCATION': 'bg-cyan-100 text-cyan-800 border-cyan-200',
+    'MONEY': 'bg-emerald-100 text-emerald-800 border-emerald-200',
+    // Advanced PII types from Presidio
+    'CRYPTO': 'bg-amber-100 text-amber-800 border-amber-200',
+    'IBAN_CODE': 'bg-slate-100 text-slate-800 border-slate-200',
+    'MEDICAL_LICENSE': 'bg-rose-100 text-rose-800 border-rose-200',
+    'US_PASSPORT': 'bg-violet-100 text-violet-800 border-violet-200',
+    'UK_NHS': 'bg-lime-100 text-lime-800 border-lime-200',
+    'NRP': 'bg-sky-100 text-sky-800 border-sky-200',
+    'IP_ADDRESS': 'bg-gray-100 text-gray-800 border-gray-200',
+    'US_DRIVER_LICENSE': 'bg-stone-100 text-stone-800 border-stone-200'
 }
 
 export default function DemoPage() {
@@ -96,6 +111,9 @@ export default function DemoPage() {
                     detection_options: {
                         enhanced: true,
                         enable_spacy: true,
+                        enable_presidio: true,
+                        enable_fuzzy_names: true,
+                        enable_international_phone: true,
                         masking_strategy: 'unique_token'
                     }
                 })
@@ -147,8 +165,8 @@ export default function DemoPage() {
                             </h1>
 
                             <p className="max-w-[600px] text-lg text-muted-foreground sm:text-xl leading-relaxed">
-                                Try our advanced PII detection with unique token masking powered by transformer models.
-                                Each entity gets a unique identifier, preserving relationships while protecting privacy.
+                                Try our enterprise-grade PII detection with unique token masking powered by spaCy, Presidio, and fuzzy matching.
+                                Detects advanced PII like crypto addresses, IBAN codes, medical licenses, and international phone numbers.
                             </p>
 
                             <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -184,7 +202,7 @@ export default function DemoPage() {
                                             Try PII Detection
                                         </CardTitle>
                                         <CardDescription>
-                                            Enter text containing personal information to see how our AI detects and masks sensitive data with unique tokens that preserve relationships.
+                                            Enter text with advanced PII (crypto addresses, IBAN codes, medical licenses, international phones) to see enterprise-grade detection with unique token masking.
                                         </CardDescription>
                                     </CardHeader>
                                     <CardContent className="space-y-4">
@@ -386,9 +404,9 @@ export default function DemoPage() {
                 <section className="section-padding bg-muted/30">
                     <div className="content-width">
                         <div className="text-center mb-12">
-                            <h2 className="heading-2 mb-4">Powered by Advanced AI</h2>
+                            <h2 className="heading-2 mb-4">Enterprise-Grade Detection Stack</h2>
                             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                                Our marketing endpoint showcases enterprise-grade PII detection with unique token masking used by leading companies.
+                                Combining spaCy NER, Microsoft Presidio, fuzzy name matching, and international phone validation for comprehensive PII detection.
                             </p>
                         </div>
 
@@ -398,9 +416,9 @@ export default function DemoPage() {
                                     <div className="h-12 w-12 mx-auto mb-4 rounded-lg bg-indigo-100 dark:bg-indigo-900/20 flex items-center justify-center">
                                         <Zap className="h-6 w-6 text-indigo-600" />
                                     </div>
-                                    <h3 className="font-semibold mb-2">Transformer Models</h3>
+                                    <h3 className="font-semibold mb-2">Multi-Engine Detection</h3>
                                     <p className="text-sm text-muted-foreground">
-                                        Powered by spaCy&apos;s en_core_web_lg model for accurate entity recognition
+                                        spaCy NER + Microsoft Presidio + fuzzy matching for comprehensive coverage
                                     </p>
                                 </CardContent>
                             </Card>
@@ -422,9 +440,9 @@ export default function DemoPage() {
                                     <div className="h-12 w-12 mx-auto mb-4 rounded-lg bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center">
                                         <Shield className="h-6 w-6 text-purple-600" />
                                     </div>
-                                    <h3 className="font-semibold mb-2">Unique Token Masking</h3>
+                                    <h3 className="font-semibold mb-2">Advanced PII Types</h3>
                                     <p className="text-sm text-muted-foreground">
-                                        Each entity gets unique identifiers ([PERSON_1], [EMAIL_1]) preserving data relationships
+                                        Detects crypto addresses, IBAN codes, medical licenses, international phones, and more
                                     </p>
                                 </CardContent>
                             </Card>
