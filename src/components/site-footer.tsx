@@ -31,21 +31,21 @@ const footerNavigation = {
 
 export function SiteFooter() {
     return (
-        <footer className="border-t bg-background">
+        <footer className="border-t border-border/50 bg-muted/20">
             <div className="container py-12 md:py-16">
                 <div className="grid gap-8 lg:grid-cols-5">
                     <div className="lg:col-span-2">
-                        <Link href="/" className="flex items-center space-x-2">
-                            <div className="h-6 w-6 rounded bg-primary" />
-                            <span className="font-bold">Reduxy.ai</span>
+                        <Link href="/" className="flex items-center space-x-2 group">
+                            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 shadow-md group-hover:shadow-lg transition-all duration-200" />
+                            <span className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Reduxy.ai</span>
                         </Link>
-                        <p className="mt-4 text-sm text-muted-foreground max-w-xs">
+                        <p className="mt-4 text-sm text-muted-foreground max-w-xs leading-relaxed">
                             Privacy gateway for LLMs. Mask PII, route safely, and audit every token before your data reaches AI providers.
                         </p>
                         <div className="mt-6 flex space-x-4">
                             <Link
                                 href="#"
-                                className="text-muted-foreground hover:text-foreground"
+                                className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-accent"
                             >
                                 <span className="sr-only">Twitter</span>
                                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -54,7 +54,7 @@ export function SiteFooter() {
                             </Link>
                             <Link
                                 href="#"
-                                className="text-muted-foreground hover:text-foreground"
+                                className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-accent"
                             >
                                 <span className="sr-only">GitHub</span>
                                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -67,7 +67,7 @@ export function SiteFooter() {
                             </Link>
                             <Link
                                 href="#"
-                                className="text-muted-foreground hover:text-foreground"
+                                className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-accent"
                             >
                                 <span className="sr-only">LinkedIn</span>
                                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -82,13 +82,13 @@ export function SiteFooter() {
                     </div>
 
                     <div>
-                        <h3 className="text-sm font-semibold">Product</h3>
+                        <h3 className="text-sm font-semibold text-foreground">Product</h3>
                         <ul className="mt-4 space-y-3">
                             {footerNavigation.product.map((item) => (
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground"
+                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                                     >
                                         {item.name}
                                     </Link>
@@ -98,13 +98,13 @@ export function SiteFooter() {
                     </div>
 
                     <div>
-                        <h3 className="text-sm font-semibold">Company</h3>
+                        <h3 className="text-sm font-semibold text-foreground">Company</h3>
                         <ul className="mt-4 space-y-3">
                             {footerNavigation.company.map((item) => (
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground"
+                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                                     >
                                         {item.name}
                                     </Link>
@@ -114,13 +114,13 @@ export function SiteFooter() {
                     </div>
 
                     <div>
-                        <h3 className="text-sm font-semibold">Legal</h3>
+                        <h3 className="text-sm font-semibold text-foreground">Legal</h3>
                         <ul className="mt-4 space-y-3">
                             {footerNavigation.legal.map((item) => (
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground"
+                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                                     >
                                         {item.name}
                                     </Link>
@@ -130,15 +130,19 @@ export function SiteFooter() {
                     </div>
                 </div>
 
-                <Separator className="my-8" />
+                <Separator className="my-8 bg-border/50" />
 
-                <div className="flex flex-col sm:flex-row justify-between items-center">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <p className="text-sm text-muted-foreground">
                         © {new Date().getFullYear()} Reduxy.ai. All rights reserved.
                     </p>
-                    <div className="mt-4 sm:mt-0">
+                    <div className="flex items-center gap-2">
                         <p className="text-sm text-muted-foreground">
-                            Made with ❤️ for privacy-conscious developers
+                            Made with
+                        </p>
+                        <span className="text-red-500 animate-pulse">❤️</span>
+                        <p className="text-sm text-muted-foreground">
+                            for privacy-conscious developers
                         </p>
                     </div>
                 </div>
