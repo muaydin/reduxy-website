@@ -15,15 +15,11 @@ module.exports = {
         '/api/*',
     ],
     transform: async (config, path) => {
-        // Custom priority for different page types
         const customPriority = {
             '/': 1.0,
-            '/product': 0.9,
             '/docs': 0.9,
             '/pricing': 0.8,
-            '/security': 0.7,
-            '/blog': 0.6,
-            '/changelog': 0.5,
+            '/legal/privacy': 0.5,
         }
 
         return {
@@ -33,4 +29,4 @@ module.exports = {
             lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
         }
     },
-} 
+}

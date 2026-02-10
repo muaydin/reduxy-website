@@ -1,10 +1,10 @@
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import { PageHeader } from "@/components/layout/page-header"
+import { PageFooter } from "@/components/layout/page-footer"
 
 export default function PrivacyPolicyPage() {
     return (
         <div className="flex min-h-screen flex-col">
-            <SiteHeader />
+            <PageHeader />
             <main className="flex-1">
                 <section className="section-padding">
                     <div className="content-width-narrow">
@@ -134,7 +134,7 @@ export default function PrivacyPolicyPage() {
                     </div>
                 </section>
             </main>
-            <SiteFooter />
+            <PageFooter />
         </div>
     )
 } 

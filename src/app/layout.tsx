@@ -3,18 +3,22 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { defaultSEO } from "../../next-seo.config"
 import { ThemeProvider } from "@/components/theme-provider"
+import { getWebsiteJsonLd, getOrganizationJsonLd } from "@/lib/seo"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: defaultSEO.title || "Reduxy.ai - Privacy Gateway for LLMs",
-    template: `%s | Reduxy.ai`,
+    default: "Reduxy - PII Detection & Redaction for Text and Images",
+    template: `%s | Reduxy`,
   },
-  description: defaultSEO.description,
-  keywords: ["LLM", "Privacy", "PII", "Masking", "OpenAI", "Anthropic", "API Gateway", "Compliance", "GDPR", "HIPAA"],
+  description: "Detect and redact personal information from text and images. 30+ PII types, face detection, document scanning. Free to try.",
+  keywords: [
+    "PII detection", "PII redaction", "personal data", "face detection",
+    "document scanning", "GDPR", "HIPAA", "privacy", "data protection",
+    "text redaction", "image redaction", "OCR", "compliance",
+  ],
   authors: [{ name: "Reduxy Team" }],
   creator: "Reduxy Team",
   metadataBase: new URL('https://www.reduxy.ai'),
@@ -22,22 +26,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.reduxy.ai',
-    siteName: 'Reduxy.ai',
-    title: defaultSEO.title || "Reduxy.ai - Privacy Gateway for LLMs",
-    description: defaultSEO.description,
+    siteName: 'Reduxy',
+    title: "Reduxy - PII Detection & Redaction for Text and Images",
+    description: "Detect and redact personal information from text and images. 30+ PII types, face detection, document scanning.",
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Reduxy.ai - Privacy Gateway for LLMs',
+        alt: 'Reduxy - PII Detection & Redaction',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: defaultSEO.title || "Reduxy.ai - Privacy Gateway for LLMs",
-    description: defaultSEO.description,
+    title: "Reduxy - PII Detection & Redaction",
+    description: "Detect and redact personal information from text and images instantly.",
     creator: '@reduxyai',
     images: ['/og-image.png'],
   },
@@ -52,9 +56,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
 }
 
 export default function RootLayout({
@@ -64,6 +65,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getWebsiteJsonLd()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getOrganizationJsonLd()) }}
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider>
           {children}

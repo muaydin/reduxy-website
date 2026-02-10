@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check, X } from "lucide-react"
 import Link from "next/link"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import { PageHeader } from "@/components/layout/page-header"
+import { PageFooter } from "@/components/layout/page-footer"
 
 const pricingTiers = [
     {
@@ -70,7 +70,7 @@ const pricingTiers = [
         ],
         limitations: [],
         ctaText: "Contact Sales",
-        ctaLink: "/contact",
+        ctaLink: "https://dashboard.reduxy.ai/register",
         popular: false,
     },
 ]
@@ -93,7 +93,7 @@ const features = [
 export default function PricingPage() {
     return (
         <div className="flex min-h-screen flex-col">
-            <SiteHeader />
+            <PageHeader />
             <main className="flex-1">
                 <div className="section-padding">
                     <div className="content-width flex flex-col items-center gap-6 text-center">
@@ -263,13 +263,13 @@ export default function PricingPage() {
                                 <Link href="https://dashboard.reduxy.ai/register">Start Free</Link>
                             </Button>
                             <Button asChild variant="outline" size="lg">
-                                <Link href="/contact">Contact Sales</Link>
+                                <Link href="https://dashboard.reduxy.ai/register">Contact Sales</Link>
                             </Button>
                         </div>
                     </div>
                 </div>
             </main>
-            <SiteFooter />
+            <PageFooter />
         </div>
     )
 } 

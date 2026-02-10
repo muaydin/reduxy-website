@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CodeTabs, chatCompletionExamples } from "@/components/code-tabs"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import { PageHeader } from "@/components/layout/page-header"
+import { PageFooter } from "@/components/layout/page-footer"
 import Link from "next/link"
 import { ArrowRight, Book, Code, Zap, Shield } from "lucide-react"
 
@@ -40,7 +40,7 @@ const quickStartGuides = [
 export default function DocsPage() {
     return (
         <div className="flex min-h-screen flex-col">
-            <SiteHeader />
+            <PageHeader />
             <main className="flex-1">
                 {/* Header */}
                 <section className="section-padding-sm bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20">
@@ -109,7 +109,7 @@ export default function DocsPage() {
                                 That&apos;s it! Your requests now have automatic PII detection and masking.
                             </p>
                             <Button asChild variant="outline">
-                                <Link href="/contact">Get Your API Key</Link>
+                                <Link href="https://dashboard.reduxy.ai/register">Get Your API Key</Link>
                             </Button>
                         </div>
                     </div>
@@ -207,10 +207,7 @@ response = client.chat.completions.create(
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button asChild size="lg">
-                                <Link href="/contact">Get API Access</Link>
-                            </Button>
-                            <Button asChild variant="outline" size="lg">
-                                <Link href="/security">View Security Guide</Link>
+                                <Link href="https://dashboard.reduxy.ai/register">Get API Access</Link>
                             </Button>
                             <Button asChild variant="outline" size="lg">
                                 <Link href="/pricing">See Pricing</Link>
@@ -219,7 +216,7 @@ response = client.chat.completions.create(
                     </div>
                 </section>
             </main>
-            <SiteFooter />
+            <PageFooter />
         </div>
     )
 } 

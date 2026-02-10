@@ -1,22 +1,20 @@
-import { DefaultSeoProps } from 'next-seo'
-
-export const defaultSEO: DefaultSeoProps = {
-    title: 'Reduxy.ai - Privacy Gateway for LLMs',
-    description: 'Mask PII, route safely, and audit every token before your data reaches OpenAI, Anthropic, or your own models.',
+export const defaultSEO = {
+    title: 'Reduxy - PII Detection & Redaction for Text and Images',
+    description: 'Detect and redact personal information from text and images. 30+ PII types, face detection, document scanning. Fast, private, and secure.',
     canonical: 'https://www.reduxy.ai',
     openGraph: {
         type: 'website',
         locale: 'en_US',
         url: 'https://www.reduxy.ai',
-        siteName: 'Reduxy.ai',
-        title: 'Reduxy.ai - Privacy Gateway for LLMs',
-        description: 'Mask PII, route safely, and audit every token before your data reaches OpenAI, Anthropic, or your own models.',
+        siteName: 'Reduxy',
+        title: 'Reduxy - PII Detection & Redaction for Text and Images',
+        description: 'Detect and redact personal information from text and images. 30+ PII types, face detection, document scanning. Fast, private, and secure.',
         images: [
             {
                 url: 'https://www.reduxy.ai/og-image.png',
                 width: 1200,
                 height: 630,
-                alt: 'Reduxy.ai - Privacy Gateway for LLMs',
+                alt: 'Reduxy - PII Detection & Redaction',
             },
         ],
     },
@@ -44,7 +42,7 @@ export const defaultSEO: DefaultSeoProps = {
         },
         {
             name: 'application-name',
-            content: 'Reduxy.ai',
+            content: 'Reduxy',
         },
     ],
     additionalLinkTags: [
@@ -62,4 +60,4 @@ export const defaultSEO: DefaultSeoProps = {
             href: '/site.webmanifest',
         },
     ],
-} 
+}
