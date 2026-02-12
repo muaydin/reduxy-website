@@ -30,57 +30,80 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    checkAuth()
+    // Check for authorization code in URL (from dashboard redirect)
+    const urlParams = new URLSearchParams(window.location.search)
+    const code = urlParams.get('code')
 
-    // Re-check auth when page becomes visible (e.g., after returning from dashboard login)
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        console.log('Page became visible, re-checking auth')
-        checkAuth()
-      }
-    }
-
-    document.addEventListener('visibilitychange', handleVisibilityChange)
-
-    // Also check when window regains focus
-    const handleFocus = () => {
-      console.log('Window focused, re-checking auth')
-      checkAuth()
-    }
-
-    window.addEventListener('focus', handleFocus)
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange)
-      window.removeEventListener('focus', handleFocus)
+    if (code) {
+      console.log('Authorization code received, exchanging for user info')
+      exchangeCodeForUser(code)
+    } else {
+      // Check if user is already logged in (from localStorage)
+      checkStoredUser()
     }
   }, [])
 
-  async function checkAuth() {
+  async function exchangeCodeForUser(code: string) {
     try {
-      const res = await fetch(`${DASHBOARD_URL}/api/auth/me`, {
-        credentials: 'include', // Send cookies (JWT)
+      setLoading(true)
+
+      // Exchange code for user info
+      const response = await fetch(`${DASHBOARD_URL}/api/auth/exchange`, {
+        method: 'POST',
         headers: {
-          'Accept': 'application/json',
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ code }),
       })
 
-      if (res.ok) {
-        const data = await res.json()
+      if (response.ok) {
+        const data = await response.json()
         setUser(data.user)
+
+        // Store user in localStorage for persistence
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('reduxy_user', JSON.stringify(data.user))
+        }
+
+        // Remove code from URL
+        const url = new URL(window.location.href)
+        url.searchParams.delete('code')
+        window.history.replaceState({}, '', url.pathname + url.search)
+
+        console.log('User authenticated via SSO:', data.user.email)
       } else {
+        console.error('Failed to exchange authorization code')
         setUser(null)
       }
     } catch (error) {
-      console.error('Auth check failed:', error)
+      console.error('Auth exchange failed:', error)
       setUser(null)
     } finally {
       setLoading(false)
     }
   }
 
+  function checkStoredUser() {
+    try {
+      if (typeof window !== 'undefined') {
+        const storedUser = localStorage.getItem('reduxy_user')
+        if (storedUser) {
+          const parsedUser = JSON.parse(storedUser)
+          console.log('Loaded user from storage:', parsedUser.email)
+          setUser(parsedUser)
+        }
+      }
+    } catch (error) {
+      console.error('Failed to load stored user:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   async function refreshUser() {
-    await checkAuth()
+    // For now, just re-validate the stored user
+    // Could implement a refresh endpoint in the future
+    checkStoredUser()
   }
 
   function login() {
@@ -89,18 +112,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     window.location.href = `${DASHBOARD_URL}/login?redirect=${returnUrl}`
   }
 
-  async function logout() {
-    try {
-      await fetch(`${DASHBOARD_URL}/api/auth/logout`, {
-        method: 'POST',
-        credentials: 'include',
-      })
-    } catch (error) {
-      console.error('Logout failed:', error)
-    } finally {
-      setUser(null)
-      window.location.reload()
+  function logout() {
+    // Clear local state
+    setUser(null)
+
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('reduxy_user')
     }
+
+    // Optionally redirect to dashboard logout to clear their session too
+    const returnUrl = encodeURIComponent(window.location.href)
+    window.location.href = `${DASHBOARD_URL}/logout?redirect=${returnUrl}`
   }
 
   return (
