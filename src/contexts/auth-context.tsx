@@ -30,11 +30,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Check for authorization code in URL (from dashboard redirect)
+    // Check for authorization code or logout flag in URL
     const urlParams = new URLSearchParams(window.location.search)
     const code = urlParams.get('code')
+    const logoutFlag = urlParams.get('logout')
 
-    if (code) {
+    if (logoutFlag === 'true') {
+      // Coming back from dashboard logout - ensure everything is cleared
+      console.log('Logout flag detected, clearing session')
+      setUser(null)
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('reduxy_user')
+      }
+
+      // Remove logout flag from URL
+      const url = new URL(window.location.href)
+      url.searchParams.delete('logout')
+      window.history.replaceState({}, '', url.pathname + url.search)
+
+      setLoading(false)
+    } else if (code) {
       console.log('Authorization code received, exchanging for user info')
       exchangeCodeForUser(code)
     } else {
