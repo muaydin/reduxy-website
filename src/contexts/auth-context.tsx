@@ -31,6 +31,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     checkAuth()
+
+    // Re-check auth when page becomes visible (e.g., after returning from dashboard login)
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        console.log('Page became visible, re-checking auth')
+        checkAuth()
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    // Also check when window regains focus
+    const handleFocus = () => {
+      console.log('Window focused, re-checking auth')
+      checkAuth()
+    }
+
+    window.addEventListener('focus', handleFocus)
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+      window.removeEventListener('focus', handleFocus)
+    }
   }, [])
 
   async function checkAuth() {
