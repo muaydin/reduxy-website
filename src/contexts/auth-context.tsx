@@ -30,12 +30,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    console.log('[AuthProvider] Mounted, checking session...')
     // Check current session with auth service
     checkSession()
   }, [])
 
   async function checkSession() {
     try {
+      console.log('[AuthProvider] checkSession: Starting...')
       setLoading(true)
 
       // Ask auth service if user is logged in
@@ -44,18 +46,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         credentials: 'include', // Important: send cookies
       })
 
+      console.log('[AuthProvider] checkSession: Response status:', response.status)
+
       if (response.ok) {
         const data = await response.json()
         setUser(data.user)
-        console.log('User session verified:', data.user.email)
+        console.log('[AuthProvider] checkSession: User logged in:', data.user.email)
       } else {
         setUser(null)
+        console.log('[AuthProvider] checkSession: No user session')
       }
     } catch (error) {
-      console.error('Session check failed:', error)
+      console.error('[AuthProvider] checkSession: Failed:', error)
       setUser(null)
     } finally {
       setLoading(false)
+      console.log('[AuthProvider] checkSession: Complete. User:', user ? 'logged in' : 'not logged in')
     }
   }
 
