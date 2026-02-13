@@ -24,6 +24,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 const DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://dashboard.reduxy.ai'
+const AUTH_URL = process.env.NEXT_PUBLIC_AUTH_URL || 'https://auth.reduxy.ai'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
@@ -62,8 +63,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       setLoading(true)
 
-      // Exchange code for user info
-      const response = await fetch(`${DASHBOARD_URL}/api/auth/exchange`, {
+      // Exchange code for user info via auth service
+      const response = await fetch(`${AUTH_URL}/api/auth/exchange`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -122,9 +123,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   function login() {
-    // Redirect to dashboard login with return URL
+    // Redirect to auth service login with return URL
     const returnUrl = encodeURIComponent(window.location.href)
-    window.location.href = `${DASHBOARD_URL}/login?redirect=${returnUrl}`
+    window.location.href = `${AUTH_URL}/login?redirect_uri=${returnUrl}`
   }
 
   function logout() {
@@ -135,9 +136,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       localStorage.removeItem('reduxy_user')
     }
 
-    // Optionally redirect to dashboard logout to clear their session too
+    // Redirect to auth service logout to clear all sessions
     const returnUrl = encodeURIComponent(window.location.href)
-    window.location.href = `${DASHBOARD_URL}/logout?redirect=${returnUrl}`
+    window.location.href = `${AUTH_URL}/logout?redirect_uri=${returnUrl}`
   }
 
   return (
