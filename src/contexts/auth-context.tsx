@@ -30,50 +30,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Check for authorization code in URL
-    const urlParams = new URLSearchParams(window.location.search)
-    const code = urlParams.get('code')
-
-    if (code) {
-      console.log('Authorization code received, exchanging for session')
-      exchangeCodeForSession(code)
-    } else {
-      // Check current session with auth service
-      checkSession()
-    }
+    // Check current session with auth service
+    checkSession()
   }, [])
-
-  async function exchangeCodeForSession(code: string) {
-    try {
-      setLoading(true)
-
-      // Exchange code - this will set the auth cookie
-      const response = await fetch(`${AUTH_URL}/api/auth/exchange`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include', // Important: include cookies
-        body: JSON.stringify({ code }),
-      })
-
-      // Remove code from URL
-      const url = new URL(window.location.href)
-      url.searchParams.delete('code')
-      window.history.replaceState({}, '', url.pathname + url.search)
-
-      if (response.ok) {
-        // Now check session to get user info
-        await checkSession()
-      } else {
-        console.error('Failed to exchange authorization code')
-        setUser(null)
-        setLoading(false)
-      }
-    } catch (error) {
-      console.error('Auth exchange failed:', error)
-      setUser(null)
-      setLoading(false)
-    }
-  }
 
   async function checkSession() {
     try {
@@ -111,22 +70,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   async function logout() {
-    try {
-      // Call auth service to clear shared cookie
-      await fetch(`${AUTH_URL}/api/auth/logout`, {
-        method: 'POST',
-        credentials: 'include',
-      })
-    } catch (error) {
-      console.error('Logout error:', error)
-    }
-
     // Clear local state
     setUser(null)
 
-    // Redirect to auth service login page
+    // Redirect to auth service logout page, which will clear cookie and redirect back
     const returnUrl = encodeURIComponent(window.location.origin)
-    window.location.href = `${AUTH_URL}/login?redirect_uri=${returnUrl}`
+    window.location.href = `${AUTH_URL}/logout?redirect_uri=${returnUrl}`
   }
 
   return (
